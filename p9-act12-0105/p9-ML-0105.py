@@ -1,43 +1,22 @@
-# Iker Montoya 0105
 import pandas as pd
-import numpy as np
-import os
 
-# Obtener la ruta exacta de la carpeta donde se encuentra este script
-directorio_script = os.path.dirname(os.path.abspath(__file__))
-ruta_local = os.path.join(directorio_script, "datos12.csv")
+# 1. Dataset actualizado
+datos12 = {
+    'distancia_km': [3.2, 5.1, 1.5, 4.7, 2.0],
+    'trafico_nivel': [3, 2, 1, 3, 2],        # 1: Bajo, 2: Medio, 3: Alto
+    'edad_repartidor': [30, 25, 38, 44, 22],
+    'tiempo_entrega_min': [30, 42, 11, 48, 16] # Lo que queremos predecir
+}
 
-# Ruta de respaldo directa en GitHub
-url_github = "https://raw.githubusercontent.com/Eliseo128/practicas-pandas-ML-2023/main/datos12.csv"
+df = pd.DataFrame(datos12)
 
-# Carga de datos con detección de ruta local o remota
-if os.path.exists(ruta_local):
-    print(f"Cargando archivo local desde: {ruta_local}\n")
-    df_datos12 = pd.read_csv(ruta_local)
-else:
-    print("Archivo local 'datos12.csv' no encontrado. Intentando descargar desde GitHub...\n")
-    try:
-        df_datos12 = pd.read_csv(url_github)
-    except Exception as e:
-        print("Error: No se encontró 'datos12.csv' localmente ni en el repositorio.")
-        print("Asegúrate de colocar 'datos12.csv' en la misma carpeta que este script.")
-        raise e
+# 2. Separar Variables de Entrada (X) y Variable Objetivo (y)
+X = df[['distancia_km', 'trafico_nivel', 'edad_repartidor']] # Features / Entradas
+y = df['tiempo_entrega_min']                                  # Target / Salida
 
-# 1. Vista previa de los datos
-print("--- Vista previa de datos12 ---")
-print(df_datos12.head())
+# 3. Mostrar estructura
+print("--- DATOS DE ENTRADA (FEATURES - X) ---")
+print(X.head(2))
 
-# 2. Información general de las columnas
-print("\n--- Información general del DataFrame ---")
-df_datos12.info()
-
-# 3. Detección de valores nulos
-print("\n--- Valores nulos por columna ---")
-print(df_datos12.isnull().sum())
-
-# 4. Estadísticas descriptivas generales
-print("\n--- Estadísticas descriptivas ---")
-print(df_datos12.describe())
-
-# Impresión final
-print("\nIker Montoya 0105")
+print("\n--- VARIABLE OBJETIVO (TARGET - y) ---")
+print(y.head(2))
