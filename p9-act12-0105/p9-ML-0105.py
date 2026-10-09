@@ -1,5 +1,5 @@
 import pandas as pd
-
+#Iker Montoya 0105
 # 1. Dataset actualizado
 datos12 = {
     'distancia_km': [3.2, 5.1, 1.5, 4.7, 2.0],
@@ -20,3 +20,4 @@ print(X.head(2))
 
 print("\n--- VARIABLE OBJETIVO (TARGET - y) ---")
 print(y.head(2))
+print("Iker Montoya 0105")
