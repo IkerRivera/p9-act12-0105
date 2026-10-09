@@ -1,0 +1,11 @@
+ID,Edad,Ingresos,Puntuacion,Categoria,Estado
+1,25,28500.50,85,A,Activo
+2,34,32000.00,,B,Inactivo
+3,45,45000.75,92,A,Activo
+4,19,15000.00,70,C,Activo
+5,52,58000.20,88,B,
+6,28,29000.00,78,A,Activo
+7,41,,95,C,Inactivo
+8,36,38500.00,81,B,Activo
+9,23,21000.40,,A,Activo
+10,60,62000.00,90,C,Inactivo
